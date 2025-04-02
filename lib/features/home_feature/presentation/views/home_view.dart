@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jabal_task/features/home_feature/presentation/views/widgets/botton_nav_bar.dart';
 import 'package:jabal_task/features/home_feature/presentation/views/widgets/custom_app_bar.dart';
 import 'package:jabal_task/features/home_feature/presentation/views/widgets/home_view_body.dart';
 
@@ -12,6 +13,7 @@ class HomeView extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: CustomAppBar(),
       body: HomeViewBody(),
+      bottomNavigationBar: BottomNavBarWidget(),
     );
   }
 }
