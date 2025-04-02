@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:jabal_task/features/home_feature/presentation/manager/home_provider.dart';
 import 'package:jabal_task/features/home_feature/presentation/views/home_view.dart';
-import 'package:jabal_task/features/product_details_feature/presentation/view/product_details_view.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(ChangeNotifierProvider<HomeProvider>(
+      create: (context) => HomeProvider(), child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -16,10 +18,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Jabal Task',
       routes: {
-        HomeView.routeName: (context) => const HomeView(),
-        ProductDetailsView.routeName: (context) => const ProductDetailsView(),
+        HomeView.routeName: (context) => HomeView(),
       },
-      initialRoute: ProductDetailsView.routeName,
+      initialRoute: HomeView.routeName,
     );
   }
 }
