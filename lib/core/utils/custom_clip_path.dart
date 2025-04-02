@@ -35,6 +35,37 @@ class ArcClipper2 extends CustomClipper<Path> {
   bool shouldReclip(CustomClipper oldClipper) => false;
 }
 
+class TopWaveClipper extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    // Adjust these values to match the exact curve you want:
+    final path = Path()
+      ..lineTo(0, size.height)
+      ..quadraticBezierTo(
+        size.width * 0.25,
+        size.height,
+        size.width * 0.79,
+        size.height,
+      )
+      ..quadraticBezierTo(
+        size.width,
+        size.height,
+        size.width,
+        size.height * 0.85,
+      )
+      ..lineTo(size.width, 0)
+      ..close();
+
+    return path;
+  }
+
+  @override
+  bool shouldReclip(covariant CustomClipper<Path> oldClipper) {
+    // Return true if you want to recalculate the path when something changes
+    return false;
+  }
+}
+
 class ArcClipperPainter extends CustomPainter {
   final Color borderColor;
   final double borderWidth;
